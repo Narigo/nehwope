@@ -1,12 +1,16 @@
-<header>
-  <slot name="header">this is the default header</slot>
-</header>
+<slot name="full-header">
+  <header>
+    <slot name="header">this is the default header</slot>
+  </header>
+</slot>
 <main>
   <slot />
 </main>
-<footer>
-  <slot name="footer">default footer</slot>
-</footer>
+<slot name="full-footer">
+  <footer>
+    <slot name="footer">inner footer</slot>
+  </footer>
+</slot>
 
 <style>
   header {
