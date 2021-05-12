@@ -4,5 +4,5 @@
 
 <BaseLayout>
   <h1 slot="header">notes of newhope</h1>
-  <h2>this is newhope</h2>
+  <slot />
 </BaseLayout>

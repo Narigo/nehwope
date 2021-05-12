@@ -6,7 +6,9 @@
    */
   export async function load({ page, fetch }) {
     const url = `/notes/${page.params.slug}.json`;
+    console.log({ url });
     const res = await fetch(url);
+    console.log({ res });
 
     if (res.ok) {
       return {
