@@ -22,8 +22,7 @@
 </script>
 
 <script lang="ts">
-import { page } from "$app/stores";
-
+  import { page } from '$app/stores';
 
   export let notes: { name: string; contents: string }[];
 </script>
