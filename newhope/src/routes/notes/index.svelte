@@ -22,12 +22,15 @@
 </script>
 
 <script lang="ts">
+import { page } from "$app/stores";
+
+
   export let notes: { name: string; contents: string }[];
 </script>
 
 <h2>notes of newhope</h2>
 <ul>
   {#each notes as note}
-    <li>note: {note.name}, contents: {note.contents}</li>
+    <li><a href={`${$page.path}/${note.name}`}>note: {note.name}</a></li>
   {/each}
 </ul>
