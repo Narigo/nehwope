@@ -8,18 +8,18 @@
 
 		
 
-		<link rel="modulepreload" href="/./_app/start-719a588d.js">
-		<link rel="modulepreload" href="/./_app/chunks/vendor-43cd886a.js">
-		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-8ba723b0.js">
-		<link rel="modulepreload" href="/./_app/pages/notes/__layout.svelte-c6f29d6b.js">
-		<link rel="modulepreload" href="/./_app/chunks/base-layout-69f52eb9.js">
-		<link rel="modulepreload" href="/./_app/pages/notes/index.svelte-b93360c4.js">
+		<link rel="modulepreload" href="/./_app/start-42a666eb.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-f8496567.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-e8ab09f3.js">
+		<link rel="modulepreload" href="/./_app/pages/notes/__layout.svelte-6d79273d.js">
+		<link rel="modulepreload" href="/./_app/chunks/base-layout-6ded0000.js">
+		<link rel="modulepreload" href="/./_app/pages/notes/index.svelte-2dc45c66.js">
 		<link rel="stylesheet" href="/./_app/assets/start-a8cd1609.css">
 		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-fd23aca3.css">
 		<link rel="stylesheet" href="/./_app/assets/base-layout-f86b8a03.css">
 
 		<script type="module">
-			import { start } from "/./_app/start-719a588d.js";
+			import { start } from "/./_app/start-42a666eb.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":"/."},
@@ -31,9 +31,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/./_app/pages/__layout.svelte-8ba723b0.js"),
-						import("/./_app/pages/notes/__layout.svelte-c6f29d6b.js"),
-						import("/./_app/pages/notes/index.svelte-b93360c4.js")
+						import("/./_app/pages/__layout.svelte-e8ab09f3.js"),
+						import("/./_app/pages/notes/__layout.svelte-6d79273d.js"),
+						import("/./_app/pages/notes/index.svelte-2dc45c66.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -49,14 +49,19 @@
     <div id="svelte">
 
 
-<header class="svelte-1bzd5ar"><h1 slot="header">notes of newhope</h1></header>
-<main class="svelte-1bzd5ar"><h2>this is newhope</h2></main>
-<footer class="svelte-1bzd5ar">default footer
-</footer>
+
+  <header class="svelte-1bzd5ar"><h1 slot="header">notes of newhope</h1></header>
+
+<main class="svelte-1bzd5ar"><h2>notes of newhope</h2>
+<ul><li>note: 2021-05-12-1-willkommen, contents: hello from willkommen
+</li></ul></main>
+
+  <footer class="svelte-1bzd5ar">inner footer</footer>
 
 
 
-	
+
+	<script type="svelte-data" url="/notes.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"[{\"name\":\"2021-05-12-1-willkommen\",\"contents\":\"hello from willkommen\\n\"}]"}</script>
 </div>
   </body>
 </html>
