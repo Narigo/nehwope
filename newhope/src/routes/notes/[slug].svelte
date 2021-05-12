@@ -1,15 +1,17 @@
 <script context="module" lang="ts">
+  import { not_equal } from 'svelte/internal';
+
   /**
    * @type {import('@sveltejs/kit').load}
    */
   export async function load({ page, fetch }) {
-    const url = `/notes/index.json`;
+    const url = `/notes/${page.params.slug}.json`;
     const res = await fetch(url);
 
     if (res.ok) {
       return {
         props: {
-          notes: await res.json()
+          note: await res.json()
         }
       };
     }
@@ -22,12 +24,8 @@
 </script>
 
 <script lang="ts">
-  export let notes: { name: string; contents: string }[];
+  export let note: { name: string; contents: string };
 </script>
 
-<h2>notes of newhope</h2>
-<ul>
-  {#each notes as note}
-    <li>note: {note.name}, contents: {note.contents}</li>
-  {/each}
-</ul>
+<h2>{note.name}</h2>
+<p>{note.contents}</p>
