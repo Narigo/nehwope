@@ -14,6 +14,9 @@ const config = {
     adapter: adapterStatic(),
 
     vite: {
+      define: {
+        'process.env.NH_NOTES': 'process.env.NH_NOTES'
+      },
       server: {
         hmr: {
           port: 3001
