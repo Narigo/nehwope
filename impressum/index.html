@@ -12,7 +12,7 @@
 		<link rel="modulepreload" href="/./_app/chunks/vendor-506683d7.js">
 		<link rel="modulepreload" href="/./_app/chunks/paths-d2152a5c.js">
 		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-62b42bdc.js">
-		<link rel="modulepreload" href="/./_app/pages/index.svelte-59d3c120.js">
+		<link rel="modulepreload" href="/./_app/pages/impressum.svelte-c48c14f6.js">
 		<link rel="modulepreload" href="/./_app/chunks/base-layout-e6c199a4.js">
 		<link rel="stylesheet" href="/./_app/assets/start-a8cd1609.css">
 		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-88afa66d.css">
@@ -32,11 +32,11 @@
 					error: null,
 					nodes: [
 						import("/./_app/pages/__layout.svelte-62b42bdc.js"),
-						import("/./_app/pages/index.svelte-59d3c120.js")
+						import("/./_app/pages/impressum.svelte-c48c14f6.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
-						path: "/",
+						path: "/impressum",
 						query: new URLSearchParams(""),
 						params: {}
 					}
@@ -49,10 +49,24 @@
 
 
 
-  <header class="svelte-1q0sa9a"><h1 class="svelte-1dv8745"><img src="/./images/logo.svg" alt="NewHope" class="svelte-1dv8745"></h1></header>
+  <header class="svelte-1q0sa9a"><h1 slot="header">Impressum</h1></header>
 
-<main class="svelte-1q0sa9a"><h2>Willkommen in der Welt NewHopes!</h2>
-  <p>Tretet ein und seht Euch um. Euer Fürstentum erwartet Euch.</p></main>
+<main class="svelte-1q0sa9a"><h2>Inhaltlich verantwortlich</h2>
+  <p>Jörn Bernhardt</p>
+  <p>Goethestr. 46<br>
+    84032 Landshut
+  </p>
+  <p>joern.bernhardt+newhope-website (at) googlemail (dot) com</p>
+  <h2>Lizenzen und Danksagungen</h2>
+  <h3>Verwendete Open-Source Tools und Bibliotheken</h3>
+  <p>Siehe <a href="https://github.com/Narigo/newhope">Quellcode auf GitHub</a> für eine genaue Auflistung
+    aller verwendeten Bibliotheken zum Erstellen dieser Seite.
+  </p>
+  <h3>Schriftarten / Fonts</h3>
+  <p>In <a href="/fonts/font-licenses.txt">font-licenses.txt</a> ist eine genaue Auflistung der verwendeten
+    Schriftarten auf dieser Seite.
+  </p>
+  <h3>Bilder</h3></main>
 
   <footer class="svelte-1q0sa9a"><div class="svelte-1ffwlpn"><section><h3 class="svelte-1ffwlpn">NewHope</h3>
     <ul class="svelte-1ffwlpn"><li><a href="/" class="svelte-1ffwlpn">Start</a></li>

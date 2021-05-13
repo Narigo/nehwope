@@ -12,11 +12,14 @@
 		<link rel="modulepreload" href="/./_app/chunks/vendor-506683d7.js">
 		<link rel="modulepreload" href="/./_app/chunks/paths-d2152a5c.js">
 		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-62b42bdc.js">
-		<link rel="modulepreload" href="/./_app/pages/index.svelte-59d3c120.js">
+		<link rel="modulepreload" href="/./_app/pages/notes/__layout.svelte-c789739b.js">
 		<link rel="modulepreload" href="/./_app/chunks/base-layout-e6c199a4.js">
+		<link rel="modulepreload" href="/./_app/pages/notes/[story]/[part].svelte-64ce9282.js">
 		<link rel="stylesheet" href="/./_app/assets/start-a8cd1609.css">
 		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-88afa66d.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/notes/__layout.svelte-ab9169ff.css">
 		<link rel="stylesheet" href="/./_app/assets/base-layout-73ac79ec.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/notes/[story]/[part].svelte-ca6f10ba.css">
 
 		<script type="module">
 			import { start } from "/./_app/start-fa9c441c.js";
@@ -32,13 +35,14 @@
 					error: null,
 					nodes: [
 						import("/./_app/pages/__layout.svelte-62b42bdc.js"),
-						import("/./_app/pages/index.svelte-59d3c120.js")
+						import("/./_app/pages/notes/__layout.svelte-c789739b.js"),
+						import("/./_app/pages/notes/[story]/[part].svelte-64ce9282.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
-						path: "/",
+						path: "/notes/der-anfang/grund-und-boden",
 						query: new URLSearchParams(""),
-						params: {}
+						params: {"story":"der-anfang","part":"grund-und-boden"}
 					}
 				}
 			});
@@ -48,11 +52,13 @@
     <div id="svelte">
 
 
-
-  <header class="svelte-1q0sa9a"><h1 class="svelte-1dv8745"><img src="/./images/logo.svg" alt="NewHope" class="svelte-1dv8745"></h1></header>
-
-<main class="svelte-1q0sa9a"><h2>Willkommen in der Welt NewHopes!</h2>
-  <p>Tretet ein und seht Euch um. Euer Fürstentum erwartet Euch.</p></main>
+<h1 slot="full-header" class="svelte-6v0w4u">notes of newhope</h1>
+<main class="svelte-1q0sa9a"><section class="svelte-6v0w4u"><article class="human svelte-17w6yig"><img src="/./images/human.svg" alt="human" class="svelte-17w6yig">
+  <h2 id="grundundboden">Grund und Boden</h2>
+<p>folgt…</p></article>
+<nav class="svelte-17w6yig"><a href="..">Zurück</a>
+  <a href="aufbau-und-wachstum">Weiter</a>
+</nav></section></main>
 
   <footer class="svelte-1q0sa9a"><div class="svelte-1ffwlpn"><section><h3 class="svelte-1ffwlpn">NewHope</h3>
     <ul class="svelte-1ffwlpn"><li><a href="/" class="svelte-1ffwlpn">Start</a></li>
@@ -69,7 +75,7 @@
 
 
 
-	
+	<script type="svelte-data" url="/notes/der-anfang/grund-und-boden.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"file\":\"grund-und-boden\",\"title\":\"Grund und Boden\",\"variant\":\"human\",\"previous\":\"..\",\"next\":\"aufbau-und-wachstum\",\"content\":\"\u003Ch2 id=\\\"grundundboden\\\"\u003EGrund und Boden\u003C\u002Fh2\u003E\\n\u003Cp\u003Efolgt…\u003C\u002Fp\u003E\"}"}</script>
 </div>
   </body>
 </html>
