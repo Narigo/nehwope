@@ -4,6 +4,8 @@ services:
   newhope:
     image: "node:16"
     working_dir: "/app/newhope"
+    environment:
+      VITE_NH_NOTES: "/app/newhope/notes"
     ports:
       - "0.0.0.0:3001:3001"
       - "0.0.0.0:3000:3000"

@@ -3,6 +3,20 @@
 </script>
 
 <BaseLayout>
-  <h1 slot="header">notes of newhope</h1>
-  <slot />
+  <h1 slot="full-header">notes of newhope</h1>
+  <section><slot /></section>
 </BaseLayout>
+
+<style>
+  h1 {
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 0 2rem;
+  }
+  section {
+    box-shadow: inset 0 30px 20px -10px var(--primary-color),
+      inset 0 -30px 20px -10px var(--primary-color);
+    flex: 1;
+    padding: 2rem;
+  }
+</style>

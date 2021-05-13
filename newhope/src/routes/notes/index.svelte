@@ -8,9 +8,7 @@
 
     if (res.ok) {
       return {
-        props: {
-          notes: await res.json()
-        }
+        props: await res.json()
       };
     }
 
@@ -24,12 +22,16 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
-  export let notes: { name: string; contents: string }[];
+  export let folders: NotesFolder[];
 </script>
 
-<h2>notes of newhope</h2>
-<ul>
-  {#each notes as note}
-    <li><a href={`${$page.path}/${note.name}`}>note: {note.name}</a></li>
-  {/each}
-</ul>
+{#each folders as folder}
+  <h2>{folder.title}</h2>
+  <ol>
+    {#each folder.notes as note}
+      <li>
+        <a href={`${$page.path.replace(/\/$/, '')}/${folder.name}/${note.file}`}>{note.title}</a>
+      </li>
+    {/each}
+  </ol>
+{/each}

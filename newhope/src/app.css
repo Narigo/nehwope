@@ -1,15 +1,49 @@
+:root {
+  --background-color: #ddccb2;
+  --primary-color: #cdb58f;
+  --secondary-color: #e4d7c2;
+  --tertiary-color: #f3e6d2;
+  --dark-color: #c8b9a2;
+  --text-color: #59544c;
+
+  --default-font-family: 'Lato', 'Verdana', Arial, sans-serif;
+  --neutral-font-family: 'Lovers Quarrel', var(--default-font-family);
+  --dwarf-font-family: 'Macondo Swash Caps', var(--default-font-family);
+  --elf-font-family: 'Great Vibes', var(--default-font-family);
+  --human-font-family: 'Mr Bedfort', var(--default-font-family);
+  --orc-font-family: 'Mansalva', var(--default-font-family);
+}
+
 html,
 body {
+  color: var(--text-color);
+  font-family: var(--default-font-family);
+  font-size: calc(12px + 1vw);
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: var(--primary-color);
-  background: linear-gradient(
-    180deg,
-    var(--primary-color) 0%,
-    var(--secondary-color) 10.45%,
-    var(--tertiary-color) 41.35%
-  );
+  background-color: var(--background-color);
+}
+
+a {
+  color: var(--text-color);
+}
+a:hover {
+  background-color: var(--tertiary-color);
+}
+
+em {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--neutral-font-family);
+}
+
+strong {
+  font-weight: 700;
 }
 
 #svelte {

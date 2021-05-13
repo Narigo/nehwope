@@ -1,14 +1,11 @@
 <script context="module" lang="ts">
-  import { not_equal } from 'svelte/internal';
-
   /**
    * @type {import('@sveltejs/kit').load}
    */
   export async function load({ page, fetch }) {
-    const url = `/notes/${page.params.slug}.json`;
-    console.log({ url });
+    const { story, part } = page.params;
+    const url = `/notes/${story}/${part}.json`;
     const res = await fetch(url);
-    console.log({ res });
 
     if (res.ok) {
       return {
@@ -26,8 +23,9 @@
 </script>
 
 <script lang="ts">
-  export let note: { name: string; contents: string };
+  import { default as NoteComponent } from '../../../components/note.svelte';
+
+  export let note: Note;
 </script>
 
-<h2>{note.name}</h2>
-<p>{note.contents}</p>
+<NoteComponent {note} />

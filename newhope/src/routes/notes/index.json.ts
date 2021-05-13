@@ -8,14 +8,26 @@ import config from '$lib/config';
  * @type {import('@sveltejs/kit').get}
  */
 export async function get(): Promise<ServerResponse> {
-  const list = await promisify(readdir)(resolve(config.newhopeNotesFolder));
+  const folderList = await promisify(readdir)(resolve(config.newhopeNotesFolder));
   return {
-    body: await Promise.all(
-      list.map(async (fileName) => {
-        const file = resolve(`${config.newhopeNotesFolder}/${fileName}`);
-        const contents = await (await promisify(readFile)(file)).toString();
-        return { name: fileName.replace(/\.md$/, ''), contents };
-      })
-    )
+    body: {
+      folders: await Promise.all(
+        folderList.map(async (folder) => {
+          const metaFile = resolve(`${config.newhopeNotesFolder}/${folder}/index.json`);
+          const metaOfFolder = JSON.parse(await (await promisify(readFile)(metaFile)).toString());
+          return {
+            ...metaOfFolder,
+            name: folder,
+            notes: await Promise.all(
+              metaOfFolder.notes.map(async (note) => {
+                const file = resolve(`${config.newhopeNotesFolder}/${folder}/${note.file}.md`);
+                const contents = await (await promisify(readFile)(file)).toString();
+                return { ...note, contents };
+              })
+            )
+          };
+        })
+      )
+    }
   };
 }
