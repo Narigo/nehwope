@@ -18,7 +18,15 @@
   article > :global(h2),
   article > :global(h3) {
     font-family: unset;
-    font-size: calc(initial * 1);
+  }
+  article > :global(h1) {
+    font-size: 2em;
+  }
+  article > :global(h2) {
+    font-size: 1.5em;
+  }
+  article > :global(h3) {
+    font-size: 1.25em;
   }
 
   article {
@@ -26,16 +34,16 @@
   }
 
   article.dwarf {
-    font-family: var(--dwarf-font-family);
+    font: var(--dwarf-font);
   }
   article.elf {
-    font-family: var(--elf-font-family);
+    font: var(--elf-font);
   }
   article.human {
-    font-family: var(--human-font-family);
+    font: var(--human-font);
   }
   article.orc {
-    font-family: var(--orc-font-family);
+    font: var(--orc-font);
   }
 
   img {
