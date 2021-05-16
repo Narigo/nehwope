@@ -20,13 +20,17 @@
     font-family: unset;
   }
   article > :global(h1) {
-    font-size: 2em;
+    font-size: 3em;
   }
   article > :global(h2) {
-    font-size: 1.5em;
+    font-size: 2.5em;
   }
   article > :global(h3) {
-    font-size: 1.25em;
+    font-size: 2em;
+  }
+
+  article > :global(h4) {
+    font-size: 1.5em;
   }
 
   article {
