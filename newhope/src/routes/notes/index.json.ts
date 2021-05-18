@@ -20,7 +20,7 @@ export async function get(): Promise<ServerResponse> {
             name: folder,
             notes: await Promise.all(
               metaOfFolder.notes.map(async (note) => {
-                const file = resolve(`${config.newhopeNotesFolder}/${folder}/${note.file}.md`);
+                const file = resolve(`${config.newhopeNotesFolder}/${folder}/${note.file}.svx`);
                 const contents = await (await promisify(readFile)(file)).toString();
                 return { ...note, contents };
               })

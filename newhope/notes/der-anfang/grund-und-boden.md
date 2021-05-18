@@ -1,3 +1,0 @@
-# Grund und Boden
-
-folgt...
