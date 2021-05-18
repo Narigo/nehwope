@@ -5,7 +5,10 @@
 </script>
 
 <article class={note.variant}>
-  <img src="{assets}/images/{note.variant}.svg" alt={note.variant} />
+  {#if note.variant && note.variant !== 'neutral'}
+    {note.variant}
+    <img src="{assets}/images/{note.variant}.svg" alt={note.variant} />
+  {/if}
   {@html note.content}
 </article>
 <nav>
@@ -14,26 +17,26 @@
 </nav>
 
 <style>
-  article > :global(h1),
-  article > :global(h2),
-  article > :global(h3) {
+  article :not(.neutral) > :global(h1),
+  article :not(.neutral) > :global(h2),
+  article :not(.neutral) > :global(h3) {
     font-family: unset;
   }
-  article > :global(h1) {
+  article :not(.neutral) > :global(h1) {
     font-size: 3em;
   }
-  article > :global(h2) {
+  article :not(.neutral) > :global(h2) {
     font-size: 2.5em;
   }
-  article > :global(h3) {
+  article :not(.neutral) > :global(h3) {
     font-size: 2em;
   }
 
-  article > :global(h4) {
+  article :not(.neutral) > :global(h4) {
     font-size: 1.5em;
   }
 
-  article {
+  article :not(.neutral) {
     font-size: 150%;
   }
 
@@ -45,6 +48,9 @@
   }
   article.human {
     font: var(--human-font);
+  }
+  article.neutral {
+    font: var(--neutral-font);
   }
   article.orc {
     font: var(--orc-font);

@@ -12,5 +12,5 @@ interface Note {
   next: string;
   previous: string;
   title: string;
-  variant: 'dwarf' | 'elf' | 'human' | 'orc';
+  variant?: 'dwarf' | 'elf' | 'human' | 'neutral' | 'orc';
 }
