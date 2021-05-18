@@ -54,8 +54,14 @@
 
 <h1 slot="full-header" class="svelte-6v0w4u">notes of newhope</h1>
 <main class="svelte-1q0sa9a"><section class="svelte-6v0w4u"><article class="human svelte-7i9dnr"><img src="/./images/human.svg" alt="human" class="svelte-7i9dnr">
-  <h2 id="grundundboden">Grund und Boden</h2>
-<p>folgt…</p></article>
+  <script context="module">
+	export const metadata = {"title":"Grund und Boden"};
+	const { title } = metadata;
+</script>
+
+<h1>Grund und Boden</h1>
+<p>folgt…</p>
+</article>
 <nav class="svelte-7i9dnr"><a href="..">Zurück</a>
   <a href="aufbau-und-wachstum">Weiter</a>
 </nav></section></main>
@@ -76,7 +82,7 @@
 
 
 
-	<script type="svelte-data" url="/notes/der-anfang/grund-und-boden.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"file\":\"grund-und-boden\",\"title\":\"Grund und Boden\",\"variant\":\"human\",\"previous\":\"..\",\"next\":\"aufbau-und-wachstum\",\"content\":\"\u003Ch2 id=\\\"grundundboden\\\"\u003EGrund und Boden\u003C\u002Fh2\u003E\\n\u003Cp\u003Efolgt…\u003C\u002Fp\u003E\"}"}</script>
+	<script type="svelte-data" url="/notes/der-anfang/grund-und-boden.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"file\":\"grund-und-boden\",\"title\":\"Grund und Boden\",\"variant\":\"human\",\"previous\":\"..\",\"next\":\"aufbau-und-wachstum\",\"content\":\"\u003Cscript context=\\\"module\\\"\u003E\\n\\texport const metadata = {\\\"title\\\":\\\"Grund und Boden\\\"};\\n\\tconst { title } = metadata;\\n\u003C\u002Fscript\u003E\\n\\n\u003Ch1\u003EGrund und Boden\u003C\u002Fh1\u003E\\n\u003Cp\u003Efolgt…\u003C\u002Fp\u003E\\n\"}"}</script>
 </div>
   </body>
 </html>
