@@ -5,6 +5,14 @@
 
 <BaseLayout>
   <Logo slot="header" />
-  <h2>Willkommen in der Welt NewHopes!</h2>
-  <p>Tretet ein und seht Euch um. Euer Fürstentum erwartet Euch.</p>
+  <section>
+    <h2>Willkommen in der Welt NewHopes!</h2>
+    <p>Tretet ein und seht Euch um. Euer Fürstentum erwartet Euch.</p>
+  </section>
 </BaseLayout>
+
+<style>
+  section {
+    padding: 0 2rem;
+  }
+</style>

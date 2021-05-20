@@ -4,5 +4,13 @@
 
 <BaseLayout>
   <h1 slot="header">Geschichte</h1>
-  <p>...folgt</p>
+  <section>
+    <p>...folgt</p>
+  </section>
 </BaseLayout>
+
+<style>
+  section {
+    padding: 0 2rem;
+  }
+</style>
