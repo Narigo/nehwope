@@ -11,10 +11,6 @@
   {/if}
   {@html note.content}
 </article>
-<nav>
-  <a href={note.previous}>Zurück</a>
-  <a href={note.next}>Weiter</a>
-</nav>
 
 <style>
   article :not(.neutral) > :global(h1),

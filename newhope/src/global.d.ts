@@ -9,8 +9,6 @@ interface NotesFolder {
 interface Note {
   content: string;
   file: string;
-  next: string;
-  previous: string;
   title: string;
   variant?: 'dwarf' | 'elf' | 'human' | 'neutral' | 'orc';
 }
