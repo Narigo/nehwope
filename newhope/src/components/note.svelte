@@ -1,15 +1,14 @@
 <script lang="ts">
   import { assets } from '$app/paths';
 
-  export let note: Note;
+  export let variant: NoteVariant = 'neutral';
 </script>
 
-<article class={note.variant}>
-  {#if note.variant && note.variant !== 'neutral'}
-    {note.variant}
-    <img src="{assets}/images/{note.variant}.svg" alt={note.variant} />
+<article class={variant}>
+  {#if variant && variant !== 'neutral'}
+    <img src="{assets}/images/{variant}.svg" alt={variant} />
   {/if}
-  {@html note.content}
+  <slot />
 </article>
 
 <style>
@@ -50,6 +49,12 @@
   }
   article.orc {
     font: var(--orc-font);
+  }
+
+  article::after {
+    clear: both;
+    content: '';
+    display: block;
   }
 
   img {

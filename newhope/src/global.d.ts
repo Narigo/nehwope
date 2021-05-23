@@ -2,13 +2,14 @@
 
 interface NotesFolder {
   name: string;
-  notes: Note[];
+  notes: NoteFile[];
   title: string;
 }
 
-interface Note {
-  content: string;
+interface NoteFile {
   file: string;
+  teaser?: string;
   title: string;
-  variant?: 'dwarf' | 'elf' | 'human' | 'neutral' | 'orc';
 }
+
+type NoteVariant = 'dwarf' | 'elf' | 'human' | 'neutral' | 'orc';

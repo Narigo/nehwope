@@ -31,11 +31,13 @@ export async function get(): Promise<ServerResponse> {
             return {
               ...noteMeta,
               name,
-              content: data.code,
               file: name
             };
           })
         );
+        notes.sort((a, b) => {
+          return (a.order || notes.length) - (b.order || notes.length);
+        });
         const result: NotesFolder = {
           name: fileOrFolder,
           notes,

@@ -1,6 +1,16 @@
 ---
-title: "Grund und Boden"
+order: 1
+title: 'Grund und Boden'
+teaser: 'Nach der großen Dunkelheit'
 ---
+
 # Grund und Boden
 
 folgt...
+
+<script lang="ts">
+import Note from "../../../components/note.svelte";
+</script>
+
+<Note variant="orc">Hallo</Note>
+<Note variant="elf">Tag</Note>
