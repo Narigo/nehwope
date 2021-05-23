@@ -8,13 +8,13 @@ import { compile } from 'mdsvex';
  * @type {import('@sveltejs/kit').get}
  */
 export async function get(): Promise<ServerResponse> {
-  const currentPath = import.meta.url.replace(/\/[^/]*$/, '');
+  const currentFullPath = import.meta.url || './src/routes/notes/';
+  const currentPath = currentFullPath.replace(/\/[^/]*$/, '');
   const folderList = await promisify(readdir)(resolve(currentPath));
   return {
     body: {
       folders: await folderList.reduce(async (folders, fileOrFolder) => {
         const acc = await folders;
-        console.log('fileOrFolder:', fileOrFolder);
         const meta = await promisify(stat)(`${currentPath}/${fileOrFolder}`);
         if (!meta.isDirectory()) {
           return acc;
@@ -27,11 +27,12 @@ export async function get(): Promise<ServerResponse> {
               await (await promisify(readFile)(`${currentPath}/${fileOrFolder}/${file}`)).toString()
             );
             const noteMeta = data.data.fm as any;
+            const name = file.replace(/\.svx$/, '');
             return {
-              name: file.replace(/\.svx$/, ''),
-              title: noteMeta.title,
+              ...noteMeta,
+              name,
               content: data.code,
-              file
+              file: name
             };
           })
         );

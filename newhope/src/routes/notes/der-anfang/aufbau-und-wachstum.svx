@@ -1,5 +1,4 @@
 ---
-order: 2
 title: "Aufbau und Wachstum"
 ---
 # Aufbau und Wachstum
