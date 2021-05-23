@@ -1,1 +1,0 @@
-{"file":"grund-und-boden","title":"Grund und Boden","variant":"human","previous":"..","next":"aufbau-und-wachstum","content":"<script context=\"module\">\n\texport const metadata = {\"title\":\"Grund und Boden\"};\n\tconst { title } = metadata;\n</script>\n\n<h1>Grund und Boden</h1>\n<p>folgt…</p>\n"}
