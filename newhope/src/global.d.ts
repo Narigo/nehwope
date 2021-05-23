@@ -8,6 +8,8 @@ interface NotesFolder {
 
 interface NoteFile {
   file: string;
+  next?: string;
+  previous?: string;
   teaser?: string;
   title: string;
 }

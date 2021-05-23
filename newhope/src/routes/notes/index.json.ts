@@ -21,7 +21,7 @@ export async function get(): Promise<ServerResponse> {
         }
 
         const files = await promisify(readdir)(resolve(`${currentPath}/${fileOrFolder}`));
-        const notes = await Promise.all(
+        const noteFiles = await Promise.all(
           files.map(async (file) => {
             const data = await compile(
               await (await promisify(readFile)(`${currentPath}/${fileOrFolder}/${file}`)).toString()
@@ -35,8 +35,15 @@ export async function get(): Promise<ServerResponse> {
             };
           })
         );
-        notes.sort((a, b) => {
-          return (a.order || notes.length) - (b.order || notes.length);
+        noteFiles.sort((a, b) => {
+          return (a.order || noteFiles.length) - (b.order || noteFiles.length);
+        });
+        const notes = noteFiles.map((note, index) => {
+          return {
+            ...note,
+            ...(index === 0 ? {} : { previous: noteFiles[index - 1].file }),
+            ...(index === noteFiles.length - 1 ? {} : { next: noteFiles[index + 1].file })
+          };
         });
         const result: NotesFolder = {
           name: fileOrFolder,
