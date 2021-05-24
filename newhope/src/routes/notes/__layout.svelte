@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import BaseLayout from '../../components/base-layout.svelte';
 </script>
 
