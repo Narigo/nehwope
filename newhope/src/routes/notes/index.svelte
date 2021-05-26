@@ -7,8 +7,12 @@
     const res = await fetch(url);
 
     if (res.ok) {
+      const notes = await res.json();
       return {
-        props: await res.json()
+        props: {
+          ...notes,
+          page
+        }
       };
     }
 
@@ -22,7 +26,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
-  export let folders: NotesFolder[];
+  export let folders: NotesFolder[] = [];
 </script>
 
 {#each folders as folder}

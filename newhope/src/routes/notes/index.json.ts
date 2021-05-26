@@ -22,18 +22,22 @@ export async function get(): Promise<ServerResponse> {
 
         const files = await promisify(readdir)(resolve(`${currentPath}/${fileOrFolder}`));
         const noteFiles = await Promise.all(
-          files.map(async (file) => {
-            const data = await compile(
-              await (await promisify(readFile)(`${currentPath}/${fileOrFolder}/${file}`)).toString()
-            );
-            const noteMeta = data.data.fm as any;
-            const name = file.replace(/\.svx$/, '');
-            return {
-              ...noteMeta,
-              name,
-              file: name
-            };
-          })
+          files
+            .filter((file) => /\.svx$/.test(file))
+            .map(async (file) => {
+              const data = await compile(
+                await (
+                  await promisify(readFile)(`${currentPath}/${fileOrFolder}/${file}`)
+                ).toString()
+              );
+              const noteMeta = data.data.fm as any;
+              const name = file.replace(/\.svx$/, '');
+              return {
+                ...noteMeta,
+                name,
+                file: name
+              };
+            })
         );
         noteFiles.sort((a, b) => {
           return (a.order || noteFiles.length) - (b.order || noteFiles.length);
