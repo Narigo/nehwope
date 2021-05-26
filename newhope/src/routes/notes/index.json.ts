@@ -1,13 +1,10 @@
-import type { ServerResponse } from '@sveltejs/kit/types/endpoint';
 import { readdir, readFile, stat } from 'fs';
 import { resolve } from 'path';
 import { promisify } from 'util';
 import { compile } from 'mdsvex';
 
-/**
- * @type {import('@sveltejs/kit').get}
- */
-export async function get(): Promise<ServerResponse> {
+import type { RequestHandler } from '@sveltejs/kit';
+export const get: RequestHandler = async (req) => {
   const currentFullPath = import.meta.url || './src/routes/notes/';
   const currentPath = currentFullPath.replace(/\/[^/]*$/, '');
   const folderList = await promisify(readdir)(resolve(currentPath));
@@ -58,4 +55,4 @@ export async function get(): Promise<ServerResponse> {
       }, Promise.resolve([]))
     }
   };
-}
+};

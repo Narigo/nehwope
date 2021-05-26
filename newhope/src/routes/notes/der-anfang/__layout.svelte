@@ -1,32 +1,38 @@
 <script lang="ts" context="module">
-  /**
-   * @type {import('@sveltejs/kit').load}
-   */
-  export async function load({ page, fetch }) {
+  import type { Load } from '@sveltejs/kit';
+  export const load: Load = async ({ page, context, fetch }) => {
     const url = `/notes.json`;
     const res = await fetch(url);
 
     if (res.ok) {
       const notes = await res.json();
       const folder = notes.folders.find((folder) => page.path.startsWith(`/notes/${folder.name}`));
+      const note = folder.notes.find((n) => page.path.endsWith(n.file));
       return {
         props: {
-          note: folder.notes.find((n) => n.title === page.title)
+          note
         }
       };
     }
 
-    console.log('res. not ok!');
     return {
       status: res.status,
       error: new Error(`Could not load ${url}`)
     };
-  }
+  };
 </script>
 
 <script lang="ts">
+  import { setContext } from 'svelte';
+
   export let note;
-  console.log('on der-anfang __layout', { note });
+  setContext('note', note);
 </script>
 
-<slot {note} />
+<slot />
+{#if !!note.previous}
+  <a href={note.previous}>Zurück</a>
+{/if}
+{#if !!note.next}
+  <a href={note.next}>Weiter</a>
+{/if}
