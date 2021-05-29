@@ -4,7 +4,13 @@ import { promisify } from 'util';
 import { compile } from 'mdsvex';
 
 import type { RequestHandler } from '@sveltejs/kit';
-export const get: RequestHandler = async (req) => {
+
+interface NoteMeta {
+  title: string;
+  order?: number;
+}
+
+export const get: RequestHandler = async () => {
   const currentFullPath = import.meta.url || './src/routes/notes/';
   const currentPath = currentFullPath.replace(/\/[^/]*$/, '');
   const folderList = await promisify(readdir)(resolve(currentPath));
@@ -27,7 +33,7 @@ export const get: RequestHandler = async (req) => {
                   await promisify(readFile)(`${currentPath}/${fileOrFolder}/${file}`)
                 ).toString()
               );
-              const noteMeta = data.data.fm as any;
+              const noteMeta = data.data.fm as NoteMeta;
               const name = file.replace(/\.svx$/, '');
               return {
                 ...noteMeta,
