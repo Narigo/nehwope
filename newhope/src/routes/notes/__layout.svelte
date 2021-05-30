@@ -4,7 +4,9 @@
 
 <BaseLayout>
   <h1 slot="full-header">notes of newhope</h1>
-  <section><slot /></section>
+  <section>
+    <slot />
+  </section>
 </BaseLayout>
 
 <style>
@@ -16,7 +18,9 @@
   section {
     box-shadow: inset 0 30px 20px -10px var(--primary-color),
       inset 0 -30px 20px -10px var(--primary-color);
+    display: flex;
     flex: 1;
+    flex-direction: column;
     padding: 2rem;
   }
 </style>
