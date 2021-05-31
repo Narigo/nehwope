@@ -8,11 +8,15 @@
 
   --default-font-family: 'Lato', 'Verdana', Arial, sans-serif;
   --neutral-font-family: 'Lovers Quarrel', var(--default-font-family);
+  --dwarf-font-family: 'Macondo Swash Caps', var(--default-font-family);
+  --elf-font-family: 'Great Vibes', var(--default-font-family);
+  --human-font-family: 'Mr Bedfort', var(--default-font-family);
+  --orc-font-family: 'Mansalva', var(--default-font-family);
   --neutral-font: 1em/1.25em var(--neutral-font-family);
-  --dwarf-font: 1em/1.25em 'Macondo Swash Caps', var(--neutral-font-family);
-  --elf-font: 1em/1.25em 'Great Vibes', var(--neutral-font-family);
-  --human-font: 1em/1.25em 'Mr Bedfort', var(--neutral-font-family);
-  --orc-font: 1em/1.25em 'Mansalva', var(--neutral-font-family);
+  --dwarf-font: 1em/1.25em var(--dwarf-font-family);
+  --elf-font: 1em/1.25em var(--elf-font-family);
+  --human-font: 1em/1.25em var(--human-font-family);
+  --orc-font: 1em/1.25em var(--orc-font-family);
 }
 
 html,
@@ -40,7 +44,7 @@ em {
 h1,
 h2,
 h3 {
-  font: var(--neutral-font);
+  font-family: var(--neutral-font-family);
   margin: 0;
   padding: 0.25em 0 0;
 }

@@ -12,43 +12,45 @@
 </article>
 
 <style>
-  article :not(.neutral) > :global(h1),
-  article :not(.neutral) > :global(h2),
-  article :not(.neutral) > :global(h3) {
-    font-family: unset;
-  }
-  article :not(.neutral) > :global(h1) {
-    font-size: 3em;
-  }
-  article :not(.neutral) > :global(h2) {
-    font-size: 2.5em;
-  }
-  article :not(.neutral) > :global(h3) {
-    font-size: 2em;
-  }
-
-  article :not(.neutral) > :global(h4) {
-    font-size: 1.5em;
-  }
-
-  article :not(.neutral) {
+  article.dwarf {
+    font-family: var(--dwarf-font-family);
     font-size: 150%;
   }
-
-  article.dwarf {
-    font: var(--dwarf-font);
+  article.dwarf > :global(h1),
+  article.dwarf > :global(h2),
+  article.dwarf > :global(h3),
+  article.dwarf > :global(h4) {
+    font-family: var(--dwarf-font-family);
   }
   article.elf {
-    font: var(--elf-font);
+    font-family: var(--elf-font-family);
+    font-size: 150%;
+  }
+  article.elf > :global(h1),
+  article.elf > :global(h2),
+  article.elf > :global(h3),
+  article.elf > :global(h4) {
+    font-family: var(--elf-font-family);
   }
   article.human {
-    font: var(--human-font);
+    font-family: var(--human-font-family);
+    font-size: 150%;
   }
-  article.neutral {
-    font: var(--neutral-font);
+  article.human > :global(h1),
+  article.human > :global(h2),
+  article.human > :global(h3),
+  article.human > :global(h4) {
+    font-family: var(--human-font-family);
   }
   article.orc {
-    font: var(--orc-font);
+    font-family: var(--orc-font-family);
+    font-size: 150%;
+  }
+  article.orc > :global(h1),
+  article.orc > :global(h2),
+  article.orc > :global(h3),
+  article.orc > :global(h4) {
+    font-family: var(--orc-font-family);
   }
 
   article::after {

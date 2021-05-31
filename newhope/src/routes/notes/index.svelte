@@ -34,10 +34,15 @@
   <ol>
     {#each folder.notes as note}
       <li>
-        <a href={`${$page.path.replace(/\/$/, '')}/${folder.name}/${note.file}`}>{note.title}</a><br
-        />
-        {note.teaser ? `${note.teaser} ...` : ''}
+        <a href={`${$page.path.replace(/\/$/, '')}/${folder.name}/${note.file}`}>{note.title}</a>
+        {note.teaser ? ` - ${note.teaser}` : ''}
       </li>
     {/each}
   </ol>
 {/each}
+
+<style>
+  li {
+    line-height: 2em;
+  }
+</style>

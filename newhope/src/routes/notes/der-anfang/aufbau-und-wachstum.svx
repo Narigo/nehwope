@@ -1,6 +1,7 @@
 ---
 order: 2
 title: 'Aufbau und Wachstum'
+teaser: 'Das Land wird erkundet und besiedelt.'
 ---
 
 # Aufbau und Wachstum

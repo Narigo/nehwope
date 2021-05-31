@@ -1,7 +1,7 @@
 ---
 order: 1
 title: 'Grund und Boden'
-teaser: 'Nach der großen Dunkelheit'
+teaser: 'Nach der großen Dunkelheit, die das Land umschlang, erhob sich eine neue Welt.'
 ---
 
 # Grund und Boden
