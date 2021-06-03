@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   import type { Load } from '@sveltejs/kit';
-  export const load: Load = async ({ page, context, fetch }) => {
+  export const load: Load = async ({ page, fetch }) => {
     const url = `/notes.json`;
     const res = await fetch(url);
 
