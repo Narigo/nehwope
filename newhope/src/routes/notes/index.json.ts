@@ -52,12 +52,25 @@ export const get: RequestHandler = async () => {
             ...(index === noteFiles.length - 1 ? {} : { next: noteFiles[index + 1].file })
           };
         });
-        const result: NotesFolder = {
-          name: fileOrFolder,
-          notes,
-          title: fileOrFolder
-        };
-        return [...acc, result];
+
+        try {
+          const folderMeta = await (
+            await promisify(readFile)(`${currentPath}/${fileOrFolder}/index.json`)
+          ).toString();
+          const result: NotesFolder = {
+            ...JSON.parse(folderMeta),
+            name: fileOrFolder,
+            notes
+          };
+          return [...acc, result];
+        } catch (e) {
+          const result: NotesFolder = {
+            title: fileOrFolder,
+            name: fileOrFolder,
+            notes
+          };
+          return [...acc, result];
+        }
       }, Promise.resolve([]))
     }
   };
