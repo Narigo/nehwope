@@ -31,6 +31,7 @@
 
 {#each folders as folder}
   <h2>{folder.title}</h2>
+  {#if folder.teaser}<p>{folder.teaser}</p>{/if}
   <ol>
     {#each folder.notes as note}
       <li>

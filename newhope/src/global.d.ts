@@ -4,6 +4,7 @@ interface NotesFolder {
   name: string;
   notes: NoteFile[];
   title: string;
+  teaser?: string;
 }
 
 interface NoteFile {
