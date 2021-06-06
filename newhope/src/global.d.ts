@@ -1,6 +1,7 @@
 /// <reference types="@sveltejs/kit" />
 
 interface NotesFolder {
+  author?: string;
   name: string;
   notes: NoteFile[];
   title: string;
