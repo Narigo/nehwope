@@ -5,29 +5,29 @@ teaser: 'Fremde Rassen und Kulturen bevölkern dieses Land. Welche Erfahrungen w
 ---
 
 <script>
-  import Note from "../../../components/note.svelte";
+  import Dialog from "../../../components/dialog.svelte";
 </script>
 
 # Erstkontakt
 
 ...
 
-<Note variant="elf">
+<Dialog variant="elf">
   <h2>Was wünscht Ihr?</h2>
   <p>Seid Ihr alleine unterwegs? Wohin geht Eure Reise?</p>
-</Note>
+</Dialog>
 
-<Note variant="dwarf">
+<Dialog variant="dwarf">
   <h2>Moment mal!</h2>
   <p>Was wird denn das, einfach so durch unsere Mine zu trampeln, ohne Wegzoll zu bezahlen?!</p>
-</Note>
+</Dialog>
 
-<Note variant="human">
+<Dialog variant="human">
   <h2>Halt!</h2>
   <p>Wer seid Ihr? Und was treibt Euch dazu, diese Ländereien zu durchqueren?</p>
-</Note>
+</Dialog>
 
-<Note variant="orc">
+<Dialog variant="orc">
   <h2>Hee!</h2>
   <p>Was fällt Dir kümmerlichem Wicht ein, in unser'm Revier herum zu latsch'n?</p>
-</Note>
+</Dialog>
