@@ -8,6 +8,7 @@
 <div>
   <article>
     <slot />
+    {#if note.author}<div class="author">&dashv;&nbsp;{note.author}</div>{/if}
   </article>
 
   <nav>
@@ -36,6 +37,13 @@
     line-height: 2em;
     margin: 0 auto;
     max-width: 800px;
+  }
+
+  .author {
+    font-size: smaller;
+    margin-top: 48px;
+    opacity: 50%;
+    text-align: right;
   }
 
   nav {
