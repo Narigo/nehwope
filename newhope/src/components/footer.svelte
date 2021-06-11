@@ -56,4 +56,8 @@
     margin: 0;
     padding: 0;
   }
+
+  li {
+    padding: 12px 0;
+  }
 </style>
