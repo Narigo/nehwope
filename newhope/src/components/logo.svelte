@@ -17,7 +17,7 @@
 
   h1 > img {
     flex: 1;
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 70%;
+    max-width: 90%;
   }
 </style>
