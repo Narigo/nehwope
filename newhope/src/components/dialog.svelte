@@ -62,9 +62,4 @@
   img {
     float: right;
   }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-  }
 </style>
