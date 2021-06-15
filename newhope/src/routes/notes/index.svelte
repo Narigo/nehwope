@@ -1,8 +1,6 @@
 <script context="module" lang="ts">
-  /**
-   * @type {import('@sveltejs/kit').load}
-   */
-  export async function load({ page, fetch }) {
+  import type { Load } from '@sveltejs/kit';
+  export const load: Load = async ({ page, fetch }) => {
     const url = `/notes.json`;
     const res = await fetch(url);
 
@@ -20,7 +18,7 @@
       status: res.status,
       error: new Error(`Could not load ${url}`)
     };
-  }
+  };
 </script>
 
 <script lang="ts">
