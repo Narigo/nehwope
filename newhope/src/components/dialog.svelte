@@ -1,7 +1,8 @@
 <script lang="ts">
   import { assets } from '$app/paths';
+  import type { DialogVariant } from '../global';
 
-  export let variant: NoteVariant = 'neutral';
+  export let variant: DialogVariant = 'neutral';
 </script>
 
 <article class={variant}>

@@ -2,14 +2,14 @@
   import BaseLayout from '../../components/base-layout.svelte';
 </script>
 
-<svelte:head><title>Notes of NewHope</title></svelte:head>
-
 <BaseLayout>
   <h1 slot="full-header">notes of newhope</h1>
   <section>
     <slot />
   </section>
 </BaseLayout>
+
+<svelte:head><title>Notes of NewHope</title></svelte:head>
 
 <style>
   h1 {

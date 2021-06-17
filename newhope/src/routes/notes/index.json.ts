@@ -4,6 +4,7 @@ import { promisify } from 'util';
 import { compile } from 'mdsvex';
 
 import type { RequestHandler } from '@sveltejs/kit';
+import type { NotesFolder } from '../../global';
 
 interface NoteMeta {
   title: string;

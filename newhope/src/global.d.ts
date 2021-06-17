@@ -1,6 +1,6 @@
 /// <reference types="@sveltejs/kit" />
 
-interface NotesFolder {
+export interface NotesFolder {
   author?: string;
   name: string;
   notes: NoteFile[];
@@ -8,7 +8,7 @@ interface NotesFolder {
   teaser?: string;
 }
 
-interface NoteFile {
+export interface NoteFile {
   file: string;
   next?: string;
   previous?: string;
@@ -16,4 +16,4 @@ interface NoteFile {
   title: string;
 }
 
-type NoteVariant = 'dwarf' | 'elf' | 'human' | 'neutral' | 'orc';
+export type DialogVariant = 'dwarf' | 'elf' | 'human' | 'neutral' | 'orc';
