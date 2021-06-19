@@ -20,13 +20,10 @@
   <nav>
     {#if !!note.previous}
       <a href={note.previous}>Zurück</a>
-    {:else}
-      <a href="..">Zum Index</a>
     {/if}
+    <a href="..">Zum Index</a>
     {#if !!note.next}
       <a href={note.next}>Weiter</a>
-    {:else}
-      <a href="..">Zum Index</a>
     {/if}
   </nav>
 </div>
