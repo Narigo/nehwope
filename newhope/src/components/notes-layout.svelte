@@ -20,10 +20,14 @@
   <nav>
     {#if !!note.previous}
       <a href={note.previous}>Zurück</a>
+    {:else}
+      <span>Zurück</span>
     {/if}
     <a href="..">Zum Index</a>
     {#if !!note.next}
       <a href={note.next}>Weiter</a>
+    {:else}
+      <span>Weiter</span>
     {/if}
   </nav>
 </div>
@@ -52,5 +56,9 @@
   nav {
     display: flex;
     justify-content: space-between;
+  }
+
+  span {
+    opacity: 20%;
   }
 </style>
