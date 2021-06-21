@@ -1,5 +1,4 @@
 ---
-author: 'Someone'
 order: 1
 title: 'Auf Schatten folgt Licht'
 teaser: 'Nach der großen Dunkelheit, die das Land umschlang, erhebt sich eine neue Welt.'
