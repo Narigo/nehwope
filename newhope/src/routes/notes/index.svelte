@@ -28,6 +28,8 @@
   export let folders: NotesFolder[] = [];
 </script>
 
+<svelte:head><title>Notes of NewHope</title></svelte:head>
+
 {#each folders as folder}
   <h2>{folder.title}</h2>
   {#if folder.author}<p>Von {folder.author}</p>{/if}

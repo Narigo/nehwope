@@ -3,6 +3,8 @@
   import Logo from '../components/logo.svelte';
 </script>
 
+<svelte:head><title>NewHope</title></svelte:head>
+
 <BaseLayout>
   <Logo slot="header" />
   <section>

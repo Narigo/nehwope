@@ -2,6 +2,8 @@
   import BaseLayout from '../components/base-layout.svelte';
 </script>
 
+<svelte:head><title>NewHope - Impressum</title></svelte:head>
+
 <BaseLayout>
   <h1 slot="header">Impressum</h1>
   <section>

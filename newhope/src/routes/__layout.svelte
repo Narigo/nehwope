@@ -1,5 +1,3 @@
-<svelte:head><title>NewHope</title></svelte:head>
-
 <slot />
 
 <style>

@@ -9,8 +9,6 @@
   </section>
 </BaseLayout>
 
-<svelte:head><title>Notes of NewHope</title></svelte:head>
-
 <style>
   h1 {
     background-color: var(--primary-color);
