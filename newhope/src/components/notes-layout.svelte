@@ -5,12 +5,6 @@
   setContext('note', note);
 </script>
 
-<svelte:head>
-  {#if note.title}
-    <title>{note.title} - Notes of NewHope</title>
-  {/if}
-</svelte:head>
-
 <div>
   <article>
     <slot />

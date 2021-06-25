@@ -12,7 +12,7 @@ interface NoteMeta {
 }
 
 export const get: RequestHandler = async () => {
-  const currentFullPath = import.meta.url || './src/routes/notes/';
+  const currentFullPath = import.meta.url || './src/routes/notes';
   const currentPath = currentFullPath.replace(/\/[^/]*$/, '');
   const folderList = await promisify(readdir)(resolve(currentPath));
   return {
@@ -20,18 +20,18 @@ export const get: RequestHandler = async () => {
       folders: await folderList.reduce(async (folders, fileOrFolder) => {
         const acc = await folders;
         const meta = await promisify(stat)(`${currentPath}/${fileOrFolder}`);
-        if (!meta.isDirectory()) {
+        if (!meta.isDirectory() || fileOrFolder === '[id]') {
           return acc;
         }
 
-        const files = await promisify(readdir)(resolve(`${currentPath}/${fileOrFolder}`));
+        const files = await promisify(readdir)(resolve(`${currentPath}/${fileOrFolder}/_notes`));
         const noteFiles = await Promise.all(
           files
             .filter((file) => /\.svx$/.test(file))
             .map(async (file) => {
               const data = await compile(
                 await (
-                  await promisify(readFile)(`${currentPath}/${fileOrFolder}/${file}`)
+                  await promisify(readFile)(`${currentPath}/${fileOrFolder}/_notes/${file}`)
                 ).toString()
               );
               const noteMeta = data.data.fm as NoteMeta;
@@ -39,7 +39,8 @@ export const get: RequestHandler = async () => {
               return {
                 ...noteMeta,
                 name,
-                file: name
+                file: name,
+                content: data.code
               };
             })
         );
@@ -55,9 +56,11 @@ export const get: RequestHandler = async () => {
         });
 
         try {
+          console.log('reading folderMeta');
           const folderMeta = await (
             await promisify(readFile)(`${currentPath}/${fileOrFolder}/index.json`)
           ).toString();
+          console.log({ folderMeta });
           const result: NotesFolder = {
             ...JSON.parse(folderMeta),
             name: fileOrFolder,
@@ -65,6 +68,7 @@ export const get: RequestHandler = async () => {
           };
           return [...acc, result];
         } catch (e) {
+          console.log('no folder meta found, error:', e);
           const result: NotesFolder = {
             title: fileOrFolder,
             name: fileOrFolder,
