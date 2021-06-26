@@ -9,9 +9,13 @@ export const load: Load = async ({ page, fetch }) => {
     console.log('load in [id]/index cont', JSON.stringify(notes.folders, null, 2));
     const folder = notes.folders.find((folder) => page.params.id === folder.name);
     const note = folder.notes.find((n) => page.params.note === n.file);
+    const noteModule = await import(
+      `../routes/notes/${page.params.id}/_notes/${page.params.note}.svx`
+    );
     return {
       props: {
-        note
+        note,
+        component: noteModule
       }
     };
   }

@@ -9,6 +9,7 @@
 
   const { id, note: noteFile } = $page.params;
   export let note;
+  export let component;
 
   console.log('hello in [id].svelte');
 </script>
@@ -21,7 +22,7 @@
 
 <div>{id}: {noteFile}</div>
 <div>{Object.keys(note)}</div>
-<div>{note.content}</div>
+<div><svelte:component this={component} /></div>
 <NotesLayout {note}>
-  <slot>{note.content}</slot>
+  <slot>{component}</slot>
 </NotesLayout>
