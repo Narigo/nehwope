@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "build": "npm run build:notes && svelte-kit build",
+    "build:notes": "node src/notes/prepare-notes.js",
+    "clean:notes": "node src/notes/clean-notes.js",
     "preview": "svelte-kit preview",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --write --plugin-search-dir=. ."
