@@ -1,7 +1,6 @@
 import { readdir, readFile, stat } from 'fs';
 import { resolve } from 'path';
 import { promisify } from 'util';
-import { compile } from 'mdsvex';
 
 import type { RequestHandler } from '@sveltejs/kit';
 import type { NotesFolder } from '../../global';
@@ -12,30 +11,29 @@ interface NoteMeta {
 }
 
 export const get: RequestHandler = async () => {
-  const currentFullPath = import.meta.url || './src/routes/notes';
+  const currentFullPath = import.meta.url || './src/routes/notes/';
   const currentPath = currentFullPath.replace(/\/[^/]*$/, '');
   const folderList = await promisify(readdir)(resolve(currentPath));
   return {
     body: {
-      folders: await folderList.reduce(async (folders, fileOrFolder) => {
-        const acc = await folders;
+      folders: await folderList.reduce(async (acc, fileOrFolder) => {
+        const folders = await acc;
         const meta = await promisify(stat)(`${currentPath}/${fileOrFolder}`);
         if (!meta.isDirectory() || fileOrFolder === '[id]') {
-          return acc;
+          return folders;
         }
 
-        const files = await promisify(readdir)(resolve(`${currentPath}/${fileOrFolder}/_notes`));
+        const files = await promisify(readdir)(resolve(`${currentPath}/${fileOrFolder}`));
         const noteFiles = await Promise.all(
           files
-            .filter((file) => /\.svx$/.test(file))
+            .filter((file) => /\.svelte$/.test(file))
             .map(async (file) => {
-              const data = await compile(
-                await (
-                  await promisify(readFile)(`${currentPath}/${fileOrFolder}/_notes/${file}`)
-                ).toString()
+              console.log(`map file ${file} and import ${currentPath}/${fileOrFolder}/${file}`);
+              const data = await import(`${currentPath}/${fileOrFolder}/${file}`).then(
+                (module) => module
               );
-              const noteMeta = data.data.fm as NoteMeta;
-              const name = file.replace(/\.svx$/, '');
+              const noteMeta = data.metadata as NoteMeta;
+              const name = file.replace(/\.svelte$/, '');
               return {
                 ...noteMeta,
                 name,
@@ -56,25 +54,22 @@ export const get: RequestHandler = async () => {
         });
 
         try {
-          console.log('reading folderMeta');
           const folderMeta = await (
             await promisify(readFile)(`${currentPath}/${fileOrFolder}/index.json`)
           ).toString();
-          console.log({ folderMeta });
           const result: NotesFolder = {
             ...JSON.parse(folderMeta),
             name: fileOrFolder,
             notes
           };
-          return [...acc, result];
+          return [...folders, result];
         } catch (e) {
-          console.log('no folder meta found, error:', e);
           const result: NotesFolder = {
             title: fileOrFolder,
             name: fileOrFolder,
             notes
           };
-          return [...acc, result];
+          return [...folders, result];
         }
       }, Promise.resolve([]))
     }
