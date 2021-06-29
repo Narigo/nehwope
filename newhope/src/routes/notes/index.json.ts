@@ -29,11 +29,11 @@ export const get: RequestHandler = async () => {
             .filter((file) => /\.svelte$/.test(file))
             .map(async (file) => {
               console.log(`map file ${file} and import ${currentPath}/${fileOrFolder}/${file}`);
-              const data = await import(`${currentPath}/${fileOrFolder}/${file}`).then(
+              const name = file.replace(/\.svelte$/, '');
+              const data = await import(`./${fileOrFolder}/${name}.svelte`).then(
                 (module) => module
               );
               const noteMeta = data.metadata as NoteMeta;
-              const name = file.replace(/\.svelte$/, '');
               return {
                 ...noteMeta,
                 name,
