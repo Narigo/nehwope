@@ -6,12 +6,17 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import NotesLayout from '../../../components/notes-layout.svelte';
+  import { onMount } from 'svelte';
 
   const { id, note: noteFile } = $page.params;
   export let note;
+  export let componentImport;
   export let component;
+  export let componentDynamic;
 
-  console.log('hello in [id].svelte');
+  onMount(async () => {
+    componentDynamic = await import(componentImport);
+  });
 </script>
 
 <svelte:head>
@@ -20,9 +25,10 @@
   {/if}
 </svelte:head>
 
-<div>{id}: {noteFile}</div>
-<div>{Object.keys(note)}</div>
-<div><svelte:component this={component} /></div>
 <NotesLayout {note}>
-  <slot>{component}</slot>
+  {#if componentDynamic}
+    <svelte:component this={componentDynamic} />
+  {:else}
+    <svelte:component this={component} />
+  {/if}
 </NotesLayout>

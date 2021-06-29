@@ -12,14 +12,14 @@ interface NoteMeta {
 
 export const get: RequestHandler = async () => {
   const currentFullPath = import.meta.url || './src/routes/notes/';
-  const currentPath = currentFullPath.replace(/\/[^/]*$/, '');
+  const currentPath = currentFullPath.replace(/\/[^/]*$/, '/_notes');
   const folderList = await promisify(readdir)(resolve(currentPath));
   return {
     body: {
       folders: await folderList.reduce(async (acc, fileOrFolder) => {
         const folders = await acc;
         const meta = await promisify(stat)(`${currentPath}/${fileOrFolder}`);
-        if (!meta.isDirectory() || fileOrFolder === '[id]') {
+        if (!meta.isDirectory()) {
           return folders;
         }
 
@@ -28,9 +28,8 @@ export const get: RequestHandler = async () => {
           files
             .filter((file) => /\.svelte$/.test(file))
             .map(async (file) => {
-              console.log(`map file ${file} and import ${currentPath}/${fileOrFolder}/${file}`);
               const name = file.replace(/\.svelte$/, '');
-              const data = await import(`./${fileOrFolder}/${name}.svelte`).then(
+              const data = await import(`./_notes/${fileOrFolder}/${name}.svelte`).then(
                 (module) => module
               );
               const noteMeta = data.metadata as NoteMeta;

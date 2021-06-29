@@ -24,9 +24,17 @@ async function run() {
       const file = `${process.env.VITE_NH_NOTES}/${folder}/${noteFile}`;
       const content = await (await readFile(file)).toString();
       const svelteFile = await compile(content);
-      const compiledFolder = `src/routes/notes/${folder}`;
+      const compiledFolder = `./src/routes/notes/_notes/${folder}`;
       await mkdir(compiledFolder, { recursive: true });
-      await writeFile(`${compiledFolder}/${basename(file, '.svx')}.svelte`, svelteFile.code);
+      /** @type {Record<string, any>} */
+      const frontMatter = svelteFile.data?.fm;
+      await writeFile(
+        `${compiledFolder}/${basename(file, '.svx')}.svelte`,
+        `${svelteFile.code.replace(
+          /context="module">/,
+          'context="module">export const ssr = true;\n'
+        )}\n<svelte:head><title>${frontMatter.title || ''}</title></svelte:head>`
+      );
       await copyFile(`${fullFolderName}/index.json`, `${compiledFolder}/index.json`);
     }
   }
