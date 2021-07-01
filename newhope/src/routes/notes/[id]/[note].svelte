@@ -10,13 +10,7 @@
 
   const { id, note: noteFile } = $page.params;
   export let note;
-  export let componentImport;
   export let component;
-  export let componentDynamic;
-
-  onMount(async () => {
-    componentDynamic = await import(componentImport);
-  });
 </script>
 
 <svelte:head>
@@ -26,9 +20,7 @@
 </svelte:head>
 
 <NotesLayout {note}>
-  {#if componentDynamic}
-    <svelte:component this={componentDynamic} />
-  {:else}
+  {#if component}
     <svelte:component this={component} />
   {/if}
 </NotesLayout>
