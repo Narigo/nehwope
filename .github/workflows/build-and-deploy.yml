@@ -14,6 +14,7 @@ jobs:
       - name: Building 🔧
         run: |
           cd newhope
+          ls -la src/routes/notes/
           npm ci
           VITE_NH_NOTES="notes" npm run build
 
