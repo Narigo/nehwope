@@ -14,10 +14,8 @@ jobs:
       - name: Building 🔧
         run: |
           cd newhope
-          ls -la src/routes/notes/
           npm ci
           VITE_NH_NOTES="notes" npm run build
-          ls -la src/routes/notes/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
