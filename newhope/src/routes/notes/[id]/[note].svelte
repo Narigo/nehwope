@@ -4,11 +4,8 @@
 </script>
 
 <script lang="ts">
-  import { page } from '$app/stores';
   import NotesLayout from '../../../components/notes-layout.svelte';
-  import { onMount } from 'svelte';
 
-  const { id, note: noteFile } = $page.params;
   export let note;
   export let component;
 </script>
