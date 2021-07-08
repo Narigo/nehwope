@@ -23,6 +23,7 @@
 
 <script lang="ts">
   import { page } from '$app/stores';
+  import FolderLayout from '$components/folder-layout.svelte';
   import type { NotesFolder } from '../../global';
 
   export let folders: NotesFolder[] = [];
@@ -31,21 +32,5 @@
 <svelte:head><title>Notes of NewHope</title></svelte:head>
 
 {#each folders as folder}
-  <h2>{folder.title}</h2>
-  {#if folder.author}<p>Von {folder.author}</p>{/if}
-  {#if folder.teaser}<p>{folder.teaser}</p>{/if}
-  <ol>
-    {#each folder.notes as note}
-      <li>
-        <a href={`${$page.path.replace(/\/$/, '')}/${folder.name}/${note.file}`}>{note.title}</a>
-        {note.teaser ? ` - ${note.teaser}` : ''}
-      </li>
-    {/each}
-  </ol>
+  <FolderLayout basePath={`${$page.path.replace(/\/$/, '')}/${folder.name}`} {folder} />
 {/each}
-
-<style>
-  li {
-    line-height: 2em;
-  }
-</style>
