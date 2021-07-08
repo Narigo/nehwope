@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { page } from '$app/stores';
   import type { NotesFolder } from 'src/global';
 
   export let basePath: string;

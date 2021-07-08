@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div>
   <section>
     <h3>NewHope</h3>
