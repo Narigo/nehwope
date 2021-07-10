@@ -18,8 +18,8 @@
 
 <NotesLayout {note}>
   {#if component}
-    {#await component then { default: Component }}
-      <Component />
+    {#await component then m}
+      <svelte:component this={m.default} />
     {/await}
   {/if}
 </NotesLayout>
