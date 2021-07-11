@@ -6,23 +6,29 @@
 </script>
 
 <div>
-  <article>
-    <slot />
-    {#if note.author}<div class="author">&dashv;&nbsp;{note.author}</div>{/if}
-  </article>
+  <div class="content">
+    <nav>
+      {#if !!note.previous}
+        <a href={note.previous}>Zurück</a>
+      {:else}
+        <span>Zurück</span>
+      {/if}
+    </nav>
+    <article>
+      <slot />
+      {#if note.author}<div class="author">&dashv;&nbsp;{note.author}</div>{/if}
+    </article>
+    <nav>
+      {#if !!note.next}
+        <a href={note.next}>Weiter</a>
+      {:else}
+        <span>Weiter</span>
+      {/if}
+    </nav>
+  </div>
 
-  <nav>
-    {#if !!note.previous}
-      <a href={note.previous}>Zurück</a>
-    {:else}
-      <span>Zurück</span>
-    {/if}
+  <nav class="index">
     <a href="..">Zum Index</a>
-    {#if !!note.next}
-      <a href={note.next}>Weiter</a>
-    {:else}
-      <span>Weiter</span>
-    {/if}
   </nav>
 </div>
 
@@ -34,9 +40,26 @@
     justify-content: space-between;
   }
 
+  .content {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .index {
+    justify-content: center;
+    display: flex;
+  }
+
+  a {
+    padding: 25px;
+    text-align: center;
+  }
+
   article {
     line-height: 2em;
-    margin: 0 auto;
     max-width: 800px;
   }
 
@@ -45,11 +68,6 @@
     margin-top: 48px;
     opacity: 50%;
     text-align: right;
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-between;
   }
 
   span {
