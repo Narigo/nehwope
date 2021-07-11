@@ -7,13 +7,13 @@ export const load: Load = async ({ page, fetch }) => {
     const notes = await res.json();
     const folder = notes.folders.find((folder) => page.params.id === folder.name);
     const note = folder.notes.find((n) => page.params.note === n.file);
-    const noteModule = import(
+    const noteModule = await import(
       `../routes/notes/_notes/${page.params.id}/${page.params.note}.svelte`
     );
     return {
       props: {
         note,
-        component: noteModule
+        component: noteModule.default
       }
     };
   }
