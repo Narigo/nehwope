@@ -7,7 +7,7 @@
 
 <div>
   <div class="content">
-    <nav>
+    <nav class="previous">
       {#if !!note.previous}
         <a href={note.previous}>Zurück</a>
       {:else}
@@ -18,7 +18,7 @@
       <slot />
       {#if note.author}<div class="author">&dashv;&nbsp;{note.author}</div>{/if}
     </article>
-    <nav>
+    <nav class="next">
       {#if !!note.next}
         <a href={note.next}>Weiter</a>
       {:else}
@@ -48,14 +48,26 @@
     justify-content: space-between;
   }
 
-  .index {
-    justify-content: center;
+  nav {
+    align-self: stretch;
     display: flex;
+    font-size: 0.75em;
   }
 
-  a {
-    padding: 25px;
-    text-align: center;
+  nav a,
+  nav span {
+    align-self: center;
+    justify-self: center;
+    padding: 2rem;
+  }
+
+  nav span {
+    opacity: 20%;
+  }
+
+  nav.index {
+    justify-content: center;
+    width: 100%;
   }
 
   article {
@@ -68,9 +80,5 @@
     margin-top: 48px;
     opacity: 50%;
     text-align: right;
-  }
-
-  span {
-    opacity: 20%;
   }
 </style>
