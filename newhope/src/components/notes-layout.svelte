@@ -6,26 +6,26 @@
 </script>
 
 <div>
-  <div class="content">
-    <nav class="previous">
-      {#if !!note.previous}
-        <a href={note.previous}>Zurück</a>
-      {:else}
-        <span>Zurück</span>
-      {/if}
-    </nav>
-    <article>
-      <slot />
-      {#if note.author}<div class="author">&dashv;&nbsp;{note.author}</div>{/if}
-    </article>
-    <nav class="next">
-      {#if !!note.next}
-        <a href={note.next}>Weiter</a>
-      {:else}
-        <span>Weiter</span>
-      {/if}
-    </nav>
-  </div>
+  <nav class="previous">
+    {#if !!note.previous}
+      <a href={note.previous}>Zurück</a>
+    {:else}
+      <span>Zurück</span>
+    {/if}
+  </nav>
+
+  <article>
+    <slot />
+    {#if note.author}<div class="author">&dashv;&nbsp;{note.author}</div>{/if}
+  </article>
+
+  <nav class="next">
+    {#if !!note.next}
+      <a href={note.next}>Weiter</a>
+    {:else}
+      <span>Weiter</span>
+    {/if}
+  </nav>
 
   <nav class="index">
     <a href="..">Zum Index</a>
@@ -34,45 +34,40 @@
 
 <style>
   div {
-    display: flex;
+    display: grid;
+    grid-template:
+      'prev content next' minmax(max-content, 100%)
+      'prev index next' auto / 1fr minmax(auto, 800px) 1fr;
     flex: 1;
     flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .content {
     align-items: center;
-    display: flex;
-    flex: 1;
-    flex-direction: row;
+    height: 100%;
     justify-content: space-between;
   }
 
-  nav {
-    align-self: stretch;
-    display: flex;
-    font-size: 0.75em;
+  .previous {
+    grid-area: prev;
   }
 
-  nav a,
-  nav span {
-    align-self: center;
-    justify-self: center;
-    padding: 2rem;
-  }
-
-  nav span {
-    opacity: 20%;
-  }
-
-  nav.index {
-    justify-content: center;
-    width: 100%;
+  .next {
+    grid-area: next;
+    text-align: right;
   }
 
   article {
+    grid-area: content;
     line-height: 2em;
-    max-width: 800px;
+  }
+
+  .index {
+    grid-area: index;
+    text-align: center;
+  }
+
+  .previous a,
+  .next a,
+  .index a {
+    padding: 25px;
   }
 
   .author {
