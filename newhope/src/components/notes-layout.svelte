@@ -49,6 +49,10 @@
     grid-area: prev;
   }
 
+  span {
+    opacity: 20%;
+  }
+
   .next {
     grid-area: next;
     text-align: right;
@@ -64,9 +68,7 @@
     text-align: center;
   }
 
-  .previous a,
-  .next a,
-  .index a {
+  a {
     padding: 25px;
   }
 
