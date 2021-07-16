@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { assets } from '$app/paths';
+
   import { setContext } from 'svelte';
 
   export let note;
@@ -8,9 +10,9 @@
 <div>
   <nav class="previous">
     {#if !!note.previous}
-      <a href={note.previous}>Zurück</a>
+      <a href={note.previous}><img src={`${assets}/images/previous.svg`} alt="Zurück" /></a>
     {:else}
-      <span>Zurück</span>
+      <span><img src={`${assets}/images/previous.svg`} alt="Zurück (bereits am Anfang)" /></span>
     {/if}
   </nav>
 
@@ -21,9 +23,9 @@
 
   <nav class="next">
     {#if !!note.next}
-      <a href={note.next}>Weiter</a>
+      <a href={note.next}><img src={`${assets}/images/next.svg`} alt="Weiter" /></a>
     {:else}
-      <span>Weiter</span>
+      <span><img src={`${assets}/images/next.svg`} alt="Weiter (bereits am Ende)" /></span>
     {/if}
   </nav>
 
@@ -50,7 +52,9 @@
   }
 
   span {
+    display: block;
     opacity: 20%;
+    padding: 25px;
   }
 
   .next {
@@ -69,6 +73,7 @@
   }
 
   a {
+    display: block;
     padding: 25px;
   }
 
