@@ -47,6 +47,11 @@
     justify-content: space-between;
   }
 
+  nav {
+    height: 100%;
+    width: 100%;
+  }
+
   .previous {
     grid-area: prev;
   }
@@ -75,6 +80,10 @@
   a {
     display: block;
     padding: 25px;
+    text-align: center;
+    vertical-align: middle;
+    height: calc(100% - 50px);
+    width: calc(100% - 50px);
   }
 
   .author {
