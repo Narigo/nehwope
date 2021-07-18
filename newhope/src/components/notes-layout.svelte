@@ -81,11 +81,14 @@
   .index {
     display: flex;
     grid-area: index;
-    text-align: center;
+    justify-content: center;
   }
+
   .index a {
+    display: block;
     height: calc(100% - 50px);
     padding: 25px;
+    text-align: center;
     width: calc(100% - 50px);
   }
 
