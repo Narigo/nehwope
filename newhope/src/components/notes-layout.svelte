@@ -7,7 +7,7 @@
   setContext('note', note);
 </script>
 
-<div>
+<section>
   <nav class="previous">
     {#if !!note.previous}
       <a href={note.previous}><img src={`${assets}/images/previous.svg`} alt="Zurück" /></a>
@@ -32,10 +32,10 @@
   <nav class="index">
     <a href="..">Zum Index</a>
   </nav>
-</div>
+</section>
 
 <style>
-  div {
+  section {
     display: grid;
     grid-template:
       'prev content next' minmax(max-content, 100%)
@@ -64,7 +64,6 @@
 
   .next {
     grid-area: next;
-    text-align: right;
   }
 
   article {
@@ -72,17 +71,21 @@
     line-height: 2em;
   }
 
+  a {
+    display: flex;
+    padding: 25px;
+    height: calc(100% - 50px);
+    width: calc(100% - 50px);
+  }
+
   .index {
+    display: flex;
     grid-area: index;
     text-align: center;
   }
-
-  a {
-    display: block;
-    padding: 25px;
-    text-align: center;
-    vertical-align: middle;
+  .index a {
     height: calc(100% - 50px);
+    padding: 25px;
     width: calc(100% - 50px);
   }
 
