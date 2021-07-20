@@ -52,14 +52,25 @@
     width: 100%;
   }
 
-  .previous {
-    grid-area: prev;
+  .previous > a,
+  .next > a,
+  .previous > span,
+  .next > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   span {
-    display: block;
-    opacity: 20%;
+    display: flex;
+    height: calc(100% - 50px);
     padding: 25px;
+    opacity: 20%;
+    width: calc(100% - 50px);
+  }
+
+  .previous {
+    grid-area: prev;
   }
 
   .next {
