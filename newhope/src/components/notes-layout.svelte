@@ -42,6 +42,7 @@
       'prev index next' auto / 1fr minmax(auto, 800px) 1fr;
     flex: 1;
     flex-direction: column;
+    gap: 25px;
     align-items: center;
     height: 100%;
     justify-content: space-between;
