@@ -24,7 +24,7 @@
     </p>
     <h3>Schriftarten / Fonts</h3>
     <p>
-      In <a href="{assets}/fonts/font-licenses.txt">font-licenses.txt</a> ist eine genaue Auflistung
+      In <a href="{assets}/fonts/font-licenses.txt" download>font-licenses.txt</a> ist eine genaue Auflistung
       der verwendeten Schriftarten auf dieser Seite.
     </p>
     <h3>Bilder</h3>
