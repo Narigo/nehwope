@@ -43,7 +43,7 @@
     flex: 1;
     flex-direction: column;
     gap: 25px;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
     justify-content: space-between;
   }
