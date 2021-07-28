@@ -19,6 +19,7 @@
     <h3>Real-Life</h3>
     <ul>
       <li><a href="/impressum">Impressum</a></li>
+      <li><a href="/datenschutz">Datenschutz</a></li>
     </ul>
   </section>
 </div>
