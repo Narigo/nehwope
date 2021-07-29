@@ -27,6 +27,10 @@
       In <a href="{assets}/fonts/font-licenses.txt" download>font-licenses.txt</a> ist eine genaue Auflistung
       der verwendeten Schriftarten auf dieser Seite.
     </p>
+    <h3>Hosting</h3>
+    <p>
+      Diese Seite wird über <a href="https://github.com">GitHub</a> gehostet.
+    </p>
   </section>
 </BaseLayout>
 
