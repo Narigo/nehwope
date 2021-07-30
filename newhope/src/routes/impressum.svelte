@@ -29,7 +29,7 @@
     </p>
     <h3>Hosting</h3>
     <p>
-      Diese Seite wird über <a href="https://github.com">GitHub</a> gehostet.
+      Diese Seite wird auf <a href="https://pages.github.com/">GitHub Pages</a> gehostet.
     </p>
   </section>
 </BaseLayout>
