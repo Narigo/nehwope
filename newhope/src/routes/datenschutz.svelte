@@ -19,7 +19,7 @@
       der Besucher sammeln kann, worauf wir keinen Einfluss haben. Laut Ihrer <a
         href="https://docs.github.com/en/github/site-policy/github-privacy-statement#additional-services"
         >Datenschutzerklärung</a
-      > dürfen Sie die IP-Adressen der Besucher loggen, um rechtliche Anforderungen zu erfüllen und die
+      > loggen Sie die IP-Adressen der Besucher, um rechtliche Anforderungen erfüllen zu können und die
       Sicherheit und Integrität der Webseite und ihres Services zu wahren.
     </p>
   </section>
