@@ -11,7 +11,8 @@
   <section>
     <h2>Gesammelte persönliche Daten</h2>
     <p>
-      Wir sammeln auf dieser Webseite keine persönlichen Daten und loggen auch nichts dergleichen.
+      Wir sammeln auf dieser Webseite keine persönlichen Daten, loggen nicht selbst und speichern
+      keine Cookies im Browser.
     </p>
     <h2>GitHub Pages</h2>
     <p>
