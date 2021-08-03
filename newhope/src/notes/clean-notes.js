@@ -16,7 +16,8 @@ async function run() {
   for (const folder of folders) {
     const fullFolderName = `${compiledNotesFolder}/${folder}`;
     const isDirectory = (await stat(fullFolderName)).isDirectory();
-    if (!/\[.*\]/.test(fullFolderName) && isDirectory) {
+    const containsSlugInName = /\[.*\]/.test(fullFolderName);
+    if (!containsSlugInName && isDirectory) {
       await rm(fullFolderName, { recursive: true });
     }
   }
