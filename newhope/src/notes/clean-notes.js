@@ -15,7 +15,8 @@ async function run() {
   const folders = await readDir(compiledNotesFolder);
   for (const folder of folders) {
     const fullFolderName = `${compiledNotesFolder}/${folder}`;
-    if (!/\[.*\]/.test(fullFolderName) && (await stat(fullFolderName)).isDirectory()) {
+    const isDirectory = (await stat(fullFolderName)).isDirectory();
+    if (!/\[.*\]/.test(fullFolderName) && isDirectory) {
       await rm(fullFolderName, { recursive: true });
     }
   }
