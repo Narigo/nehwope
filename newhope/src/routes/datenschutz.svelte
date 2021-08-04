@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { assets } from '$app/paths';
-
   import BaseLayout from '../components/base-layout.svelte';
 </script>
 
