@@ -30,10 +30,7 @@ async function run() {
       const frontMatter = svelteFile.data?.fm;
       await writeFile(
         `${compiledFolder}/${basename(file, '.svx')}.svelte`,
-        `${svelteFile.code.replace(
-          /context="module">/,
-          'context="module">export const ssr = true;\n'
-        )}\n<svelte:head><title>${frontMatter.title || ''}</title></svelte:head>`
+        `${svelteFile.code}\n<svelte:head><title>${frontMatter.title || ''}</title></svelte:head>`
       );
       await copyFile(`${fullFolderName}/index.json`, `${compiledFolder}/index.json`);
     }
