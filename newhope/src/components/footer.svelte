@@ -30,6 +30,7 @@
     color: var(--primary-color);
     display: flex;
     flex-wrap: wrap;
+    font-size: 0.8em;
     gap: 2em;
     justify-content: space-between;
     padding: 2em;
@@ -56,6 +57,6 @@
   }
 
   li {
-    padding: 12px 0;
+    padding: 0.5em 0;
   }
 </style>
